@@ -16,7 +16,7 @@ class UserManager:
         return self.db.query(models.User).filter(models.User.email == email).first()
 
     def create_user(self, user):
-        fake_hashed_password = user.password + "notreallyhashed"  # todo: hash password
+        fake_hashed_password = user.password + "notreallyhashed"
         db_user: models.User = models.User(email=user.email, hashed_password=fake_hashed_password)
         self.db.add(db_user)
         self.db.commit()
