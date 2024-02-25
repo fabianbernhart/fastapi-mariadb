@@ -13,3 +13,6 @@ sqlalchemy_database_url: mariadb+pymysql://username:password@127.0.0.1:3306/your
 ```
 uvicorn src.main:app --reload
 ```
+
+## testing
+not implemented yet
