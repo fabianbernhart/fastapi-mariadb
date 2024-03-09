@@ -1,19 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from . import config
+from src.core.config import get_settings, Settings
 
-DATABASE_USERNAME = config.DATABASE_USERNAME
-DATABASE_PASSWORD = config.DATABASE_PASSWORD
-DATABASE_HOST = config.DATABASE_HOST
-DATABASE_NAME = config.DATABASE_NAME
+settings: Settings = get_settings()
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}/{DATABASE_NAME}"
 
-# SQLALCHEMY_DATABASE_URL = "mariadb+pymysql://root:toor@127.0.0.1:3306/company"
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(settings.sqlalchemy_database_url)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "fastapi-mariadb"
+name = "fastapi-mariadb-sqlalchemy"
 version = "0.1.0"
 description = ""
-authors = ["farbian_2005 <fabian_bernhart@web.de>"]
+authors = ["fabianbernhart <fabian_bernhart@web.de>"]
 readme = "README.md"
+license = "LICENSE"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -12,8 +13,8 @@ pydantic = "^2.6.2"
 fastapi = "^0.110.0"
 pydantic-settings = "2.2.1"
 pymysql = "^1.1.0"
-uvicorn = {extras = ["standard"], version = "^0.27.1"}
-
+uvicorn = {extras = ["standard"], version = "^0.28.0"}
+pytest = "^8.1.1"
 
 [build-system]
 requires = ["poetry-core"]
